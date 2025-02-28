@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crop Recommendation System</title>
+  <!-- Bootstrap CSS (Bootstrap 5.3 Alpha) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <!-- Client-Side Login Check -->
+  <script>
+    // This snippet checks for a session cookie.
+    // Note: Flask uses a cookie named "session". If found, we assume the user is logged in.
+    if (document.cookie.indexOf('session=') !== -1) {
+      window.location.href = '/dashboard';
+    }
+  </script>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">CropRecoSys</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+       <ul class="navbar-nav">
+          <li class="nav-item">
+             <a class="nav-link" href="#hero">Home</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="#what-we-do">What We Do</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="#features">Features</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="/contact">Contact</a>
+          </li>
+       </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="hero" class="hero">
+     <div class="content container">
+        <h1>Revolutionize Your Farming</h1>
+        <p>Crop Classification & Recommendation System for Smart Agriculture</p>
+        <!-- The Get Started button checks if the user is logged in; if so, it redirects to /dashboard -->
+
+        <a id="getStartedBtn" href="/login" class="btn btn-primary btn-lg discover-btn">Get Started</a>
+     </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="py-5">
+    <div class="container">
+       <h2 class="section-title">About Our Project</h2>
+       <div class="row align-items-center">
+          <div class="col-md-6">
+             <p>
+               Our Crop Recommendation System is built to transform agriculture by combining cutting-edge AI and Machine Learning with practical farming insights. We analyze data from soil sensors, weather forecasts, and historical crop performance to provide precise recommendations that help farmers select the best crops for their fields.
+             </p>
+             <p>
+               Designed with sustainability and productivity in mind, our platform is accessible to farmers of all technological backgrounds. By simplifying complex data into actionable insights, we empower users to make informed decisions, improve yield, and optimize resource usage.
+             </p>
+             <p>
+               We continuously update our system with real-time data and predictive analytics to adapt to changing conditions, ensuring that our recommendations remain relevant and beneficial.
+             </p>
+          </div>
+          <div class="col-md-6">
+             <img src="{{ url_for('static', filename='images/Cow.jpg') }}" alt="Farming" class="img-fluid">
+          </div>
+       </div>
+    </div>
+  </section>
+
+  <!-- What We Do Section -->
+  <section id="what-we-do">
+    <div class="container">
+       <h2 class="section-title">What We Do</h2>
+       <div class="row">
+          <div class="col-md-4 feature">
+             <i class="fas fa-seedling"></i>
+             <h4>Crop Classification</h4>
+             <p>
+               Our system utilizes state-of-the-art Convolutional Neural Networks to analyze images and sensor data, enabling precise identification of crops based on growth patterns, soil health, and environmental conditions.
+             </p>
+          </div>
+          <div class="col-md-4 feature">
+             <i class="fas fa-chart-line"></i>
+             <h4>Smart Recommendations</h4>
+             <p>
+               We harness ensemble algorithms like Random Forests to process complex datasets and provide customized crop recommendations based on real-time weather data, soil metrics, and historical trends.
+             </p>
+          </div>
+          <div class="col-md-4 feature">
+             <i class="fas fa-mobile-alt"></i>
+             <h4>User-Friendly Interface</h4>
+             <p>
+               Our platform is designed for ease of use, with a responsive layout and intuitive navigation that allow farmers to access detailed reports, graphical insights, and step-by-step recommendations on any device.
+             </p>
+          </div>
+       </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-5">
+    <div class="container">
+       <h2 class="section-title">Key Features</h2>
+       <div class="row">
+          <div class="col-md-4 text-center feature-item" style="animation-delay: 0.2s;">
+             <div class="feature-icon">
+                <i class="fas fa-seedling"></i>
+             </div>
+             <h4>Accurate Crop Identification</h4>
+             <p>
+               Leveraging deep learning, our system accurately identifies crop types, ensuring that farmers receive reliable data for optimal decision-making.
+             </p>
+          </div>
+          <div class="col-md-4 text-center feature-item" style="animation-delay: 0.4s;">
+             <div class="feature-icon">
+                <i class="fas fa-chart-line"></i>
+             </div>
+             <h4>Real-Time Data Insights</h4>
+             <p>
+               Our platform integrates live data from weather services and soil sensors, providing up-to-the-minute insights that reflect current agricultural conditions.
+             </p>
+          </div>
+          <div class="col-md-4 text-center feature-item" style="animation-delay: 0.6s;">
+             <div class="feature-icon">
+                <i class="fas fa-mobile-alt"></i>
+             </div>
+             <h4>Accessible Anywhere</h4>
+             <p>
+               With a fully responsive design, our system is optimized for desktops, tablets, and smartphones, ensuring that recommendations are available whenever and wherever needed.
+             </p>
+          </div>
+       </div>
+       <div class="row mt-4">
+         <div class="col-md-12">
+           <h5 class="text-center">Extended Capabilities</h5>
+           <p class="text-center">
+             In addition to core functionalities, our platform offers predictive analytics, long-term yield forecasting, and seamless IoT integration. This comprehensive suite of features supports modern farming practices and drives sustainable agricultural growth.
+           </p>
+         </div>
+       </div>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section id="cta" class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="section-title">Ready to Transform Your Farm?</h2>
+      <p class="mb-4">
+        Join us today to boost your productivity and make data-driven farming decisions. Start your journey with our Crop Recommendation System now.
+      </p>
+      <!-- The Get Started button is updated to check login status -->
+      <a id="ctaBtn" href="/login" class="btn btn-primary btn-lg">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+       <p>&copy; 2025 Crop Recommendation System. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+          crossorigin="anonymous"></script>
+  <!-- Optional: Additional client-side script for Get Started button -->
+  <script>
+    // Example: Modify the Get Started button link based on session cookie (client-side check)
+    document.addEventListener('DOMContentLoaded', function() {
+      // If the session cookie exists, change the href to dashboard
+      if (document.cookie.indexOf('session=') !== -1) {
+        document.getElementById('ctaBtn').href = '/dashboard';
+      }
+    });
+  </script>
+</body>
+</html>
