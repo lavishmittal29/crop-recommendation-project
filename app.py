@@ -45,7 +45,7 @@ class User(db.Model):
 def index():
     if 'user_id' in session:
         return redirect(url_for('dashboard'))
-    return render_template("home.html")
+    return render_template("index.html")
 
 # Public home route for unauthenticated users
 @app.route('/public_home')
@@ -53,7 +53,7 @@ def public_home():
     is_logged_in = False
     if 'user_id' in session:
         is_logged_in = True
-    return render_template("home.html",logged_in = is_logged_in)
+    return render_template("index.html",logged_in = is_logged_in)
 
 # Login route (GET and POST)
 @app.route('/login', methods=['GET', 'POST'])
